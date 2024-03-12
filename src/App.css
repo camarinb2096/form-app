@@ -1,38 +1,50 @@
-.App {
+.App-header{
   text-align: center;
+  background: transparent
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: 'AnonimusProBold';
+  src: url('https://fonts.googleapis.com') format('woff2'),
+       url('https://fonts.gstatic.com') format('woff');
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 390px) {
+  .Form-App {
+    width: 90%; /* Ajusta al 90% del ancho de la pantalla para dispositivos móviles */
+    margin: auto;
+    padding: 20px; /* Más espacio interno para tocar los bordes */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
+  
+  /* Otros estilos aquí */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Form-Tittle{
+  padding-top: 30px;
+  font-size: 1.5em;
+  color: #555555;
+  font-family: 'AnonimusProBold', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.Form-App {
+  text-align: center;
+  background-color: #ffffff; /* Color de fondo blanco */
+  width: 50%;
+  margin: auto; /* Centrar el formulario horizontalmente */
+  padding: 2em; /* Espaciado interno para no tocar los bordes */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra ligera para dar efecto elevado */
+  font-family: 'TuFuente', sans-serif; /* Asegúrate de tener la fuente correcta */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Input {
+  width: 100%;
+  padding: 1em;
+  margin: 1em 0;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Asegúrate de que el padding no afecte el ancho */
+  font-size: 1em;
 }
