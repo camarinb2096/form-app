@@ -11,19 +11,19 @@ const Form = () => {
     
     return <div> 
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
+            <div className="Input-Area">
                 <label className="Label">Nombre</label>
                 <input type="text" className="Input"{...register("name", { required: true })} />
                 {errors.name && <span>Este campo es requerido</span>}
             </div>
-            <div>
+            <div className="Input-Area">
                 <label className="Label">Email</label>
-                <input type="text" className="Input"{...register("name", { required: true })} />
+                <input type="text" className="Input"{...register("email", { required: true })} />
                 {errors.name && <span>Este campo es requerido</span>}
             </div>
-            <div>
+            <div className="Input-Area">
                 <label className="Label">Ciudad</label>
-                <select className="Input">
+                <select className="Input" {...register("city")}>
                     <option value="1">Bogotá D.C</option>
                     <option value="2">Medellín</option>
                     <option value="3">Cali</option>
@@ -33,21 +33,21 @@ const Form = () => {
                 </select>
                 {errors.name && <span>Este campo es requerido</span>}
             </div>
-            <div>
+            <div className="Input-Area">
                 <label className="Label">Tipo</label>
-                <select className="Input">
+                <select className="Input" {...register("type")}>
                     <option value="1">Petición</option>
                     <option value="2">Queja</option>
                     <option value="3">Reclamo</option>
                 </select>
                 {errors.name && <span>Este campo es requerido</span>}
             </div>
-            <div>
-                <label className="Label" >Descripción</label>
-                <input type="text" className="Text-Box" {...register("name", { required: true })} />
-                {errors.name && <span>Este campo es requerido</span>}
+            <div className="Input-Area">
+                <label className="Label">Descripción</label>
+                    <textarea className="Text-Area" {...register("description", { required: true })}></textarea>
+                    {errors.description && <span>Este campo es requerido</span>}
             </div>
-            <input type="submit" value='Enviar' />
+            <input type="submit" value='Enviar' className="Button"/>
         </form>
     </div>
 

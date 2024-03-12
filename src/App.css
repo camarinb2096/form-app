@@ -18,24 +18,36 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
   
-  /* Otros estilos aquí */
 }
-
 
 .Form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 30px;
+  padding: 30px 20px; /* ajusta el padding según sea necesario */
   background-color: #ffffff;
   border-radius: 12px;
-  width: 40%;
-  font-size: 1.5em;
+  width: 60%; /* ajusta el ancho según sea necesario */
+  max-width: 800px; /* ajusta el max-width según sea necesario */
+  font-size: small;
   color:black;
   font-family: 'AnonimusProBold', sans-serif;
-  font-size: small;
   margin: auto;
 }
+
+.Text-Area {
+  width: 100%;/* para compensar el padding */
+  height: 150px;
+  resize: vertical;
+  text-align: left;
+  vertical-align: top;
+  padding: 8px;
+  border: 1px solid #cccccc;
+  border-radius: 12px;
+  box-sizing: border-box; /* muy importante para que el width sea incluyendo padding y border */
+  font-family: 'AnonimusProBold', sans-serif;
+}
+
 
 .Input {
   width: 100%;
@@ -47,19 +59,6 @@
   box-sizing: border-box;
   font-size: 1em;
   font-family: 'AnonimusProBold', sans-serif;
-}
-
-.Text-Box {
-  width: 100%;
-  height: 100%;
-  padding: 50px;
-  box-sizing: border-box;
-  border-radius: 12px;
-  font-size: 1em;
-  font-family: 'AnonimusProBold', sans-serif;
-  margin: 1em 0;
-  text-align: left;
-
 }
 
 .Label {
@@ -79,14 +78,36 @@
   width: 100%;/* Ajusta el margen si es necesario */
 }
 
+.Button {
+  width: 100%;
+  padding: 1em;
+  margin: 1em 0;
+  border: none;
+  border-radius: 12px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1em;
+  font-family: 'AnonimusProBold', sans-serif;
+  cursor: pointer;
+  box-sizing: border-box;
+
+}
+
+.Input-Area{
+  width: 100%;
+  margin: 1em;
+  border-radius: 12px;
+  box-sizing: border-box;
+  font-size: 1em;
+  font-family: 'AnonimusProBold', sans-serif;
+
+}
+
 @font-face {
   font-family: 'AnonimusProBold';
   src: url('https://fonts.googleapis.com') format('woff2'),
        url('https://fonts.gstatic.com') format('woff');
 }
-
-
-
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 736px) {
   .input-with-icon {
