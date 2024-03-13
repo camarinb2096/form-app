@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import Form from './components/form.js';
+import { Copyright } from '@mui/icons-material';
 
 
 const App = () => {
@@ -12,6 +13,10 @@ const App = () => {
       <div className='Form'>
         <Form  />
       </div>
+      
+      <footer className='Footer'>
+        <p>© 2024 camarinb2096. Todos los derechos reservados.</p>
+      </footer>
 
     </div>
   );
