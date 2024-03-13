@@ -10,7 +10,7 @@ const Form = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        Axios.post('http://localhost:3001/create', {
+        Axios.post('http://localhost:8070/form', {
             name: data.name,
             email: data.email,
             city: data.city,
