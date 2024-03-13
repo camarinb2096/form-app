@@ -3,10 +3,24 @@ import "./../App.css";
 import PersonIcon from '@mui/icons-material/Person';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import Axios from 'axios';
+import React from "react";
+import { useState } from "react";
+import ConfirmModal from "./modal";
 
 const Form = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm({
+        defaultValues: {
+            name: '',
+            email: '',
+            city: 0,
+            type: 0,
+            description: ''
+        }
+    });
+
+    const [message, setMessage] = useState({ title: '', body: '' });
+    const [showModal, setShowModal] = useState(false);
 
     const onSubmit = (data) => {
         console.log(data);
@@ -17,16 +31,33 @@ const Form = () => {
             type: data.type,
             description: data.description
         }).then(() => {
+            setMessage({ title: 'Exito!!!', body: 'Se ha enviado el formulario correctamente' });
+            setShowModal(true);
+            reset();
             console.log('success');
-        });      
+        }).catch((error) => {
+            const errorMessage = error.response ? error.response.data : error.message; 
+            setMessage({ title: 'Error!!!', body: errorMessage });
+            setShowModal(true);
+            console.log('error');
+        });
+
+
     }
+
+    const closeModal = () => {
+        setShowModal(false);
+    }
+
     
-    return  <form className="Form" onSubmit={handleSubmit(onSubmit)}>
+    return (
+        <>
+        <form className="Form" onSubmit={handleSubmit(onSubmit)}>
             <div className="Input-Area">
                 <label className="Label">Nombre completo:</label>
                     <div className="Input-Container">
                         <PersonIcon className="Input-Icon" />
-                        <input type="text" className="Input" {...register("name", { required: true })} />
+                        <input type="text" className="Input" {...register("name", { required: true, maxLength: 100, })} />
                     </div>
                         {errors.name && <span>Este campo es requerido</span>}
             </div>
@@ -34,9 +65,10 @@ const Form = () => {
                 <label className="Label">Email:</label>
                 <div className="Input-Container">
                     <AlternateEmailIcon className="Input-Icon" />
-                    <input type="text" className="Input"{...register("email", { required: true })} />
-                </div>  
-                    {errors.name && <span>Este campo es requerido</span>}
+                    <input type="text" className="Input" {...register("email", { required: true, maxLength: 100, pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ })} />
+                </div>
+                    {errors.email && <span>Este campo es requerido</span>}
+                    {errors.email?.type === "pattern" && <span>El email no es valido</span>}
             </div>
             <div className="Input-Area">
                 <label className="Label">Ciudad:</label>
@@ -63,12 +95,14 @@ const Form = () => {
             </div>
             <div className="Input-Area">
                 <label className="Label">Descripción</label>
-                    <textarea placeholder="Maximo 1000 caracteres..." className="Text-Area" {...register("description", { required: true })}></textarea>
+                    <textarea placeholder="Maximo 1000 caracteres..." className="Text-Area" {...register("description", { required: true, maxLength: 10000, })}></textarea>
                     {errors.description && <span>Este campo es requerido</span>}
             </div>
             <input type="submit" value='Enviar' className="Button"/>
         </form>
-
+        <ConfirmModal show={showModal} close={closeModal} message={message} />
+        </>
+    );
 }
 
 export default Form;
