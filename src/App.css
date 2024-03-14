@@ -1,6 +1,6 @@
-.App-header{
+.App-header {
   text-align: center;
-  background: transparent
+  background: transparent;
 }
 
 @font-face {
@@ -9,41 +9,28 @@
        url('https://fonts.gstatic.com') format('woff');
 }
 
-@media screen and (max-width: 390px) {
-  .Form-App {
-    width: 90%; /* Ajusta al 90% del ancho de la pantalla para dispositivos móviles */
-    margin: auto;
-    padding: 20px; /* Más espacio interno para tocar los bordes */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-  
-}
-.Form-Tittle {
-  color:#555555;
-  font-size: 4em;
+.Form-Title {
+  color: #555555;
+  font-size: 2em;
   padding-top: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   font-family: 'AnonimusProBold', sans-serif;
 }
 
 .Form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px 20px; /* ajusta el padding según sea necesario */
+  padding: 30px 20px;
   background-color: #ffffff;
   border-radius: 12px;
-  width: 60%; /* ajusta el ancho según sea necesario */
-  max-width: 800px; /* ajusta el max-width según sea necesario */
-  font-size: small;
-  color:black;
-  font-family: 'AnonimusProBold', sans-serif;
+  width: 90%;
+  max-width: 400px;
   margin: auto;
+  font-size: small;
+  color: black;
+  font-family: 'AnonimusProBold', sans-serif;
 }
 
 .Text-Area {
-  width: 100%;/* para compensar el padding */
+  width: 100%;
   height: 150px;
   resize: vertical;
   text-align: left;
@@ -51,23 +38,34 @@
   padding: 8px;
   border: 1px solid #cccccc;
   border-radius: 12px;
-  box-sizing: border-box; /* muy importante para que el width sea incluyendo padding y border */
+  box-sizing: border-box;
   font-family: 'AnonimusProBold', sans-serif;
 }
 
+.Input-Container {
+  position: relative;
+  margin-bottom: 1em;
+}
 
 .Input {
-  flex:1;
-  width: 100%;
-  height: 100%;
-  padding: 1em;
-  padding-left: 40px;
-  margin: 1em 0;
+  position: relative; /* Añade esta línea para permitir posicionamiento relativo */
+  width: calc(100% - 40px);
+  padding: 1em 1em 1em 40px; /* Cambia el orden del padding para dejar espacio para el icono */
+  margin: 0.5em 0;
   border: 1px solid #cccccc;
   border-radius: 12px;
   box-sizing: border-box;
   font-size: 1em;
   font-family: 'AnonimusProBold', sans-serif;
+}
+
+.Input-Icon {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px; /* Cambia 'right' a 'left' */
+  color: #aaa;
 }
 
 .Select{
@@ -83,23 +81,15 @@
   font-family: 'AnonimusProBold', sans-serif;
 }
 
-.Input-Icon {
-  position: absolute;
-  margin-left: 10px; /* Ajusta esto dependiendo del tamaño de tu icono */
-  /* Añade aquí más estilos para el icono si es necesario */
-}
-
 .Label {
   font-weight: bold;
-  margin-bottom: 0; /* O ajusta según sea necesario */
-  text-align: left;
-  display: block; /* Asegúrate que el label se muestre en su propia línea */
+  margin-bottom: 1.5em;
   font-size: 1.2em;
   font-family: 'AnonimusProBold', sans-serif;
 }
 
 .Button {
-  width: 80%;
+  width: 100%;
   padding: 1em;
   margin: 1em 0;
   border: none;
@@ -112,78 +102,9 @@
   box-sizing: border-box;
 }
 
-.Input-Container {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.Input-Area{
-  position: relative;
-  width: 100%;
-  margin: 1em;
-  border-radius: 12px;
-  box-sizing: border-box;
-  font-size: 1em;
-  font-family: 'AnonimusProBold', sans-serif;
-
-}
-
 .Footer {
   text-align: center;
   padding: 20px;
   font-family: 'AnonimusProBold', sans-serif;
   padding-top: 50px;
 }
-
-.Modal {
-  position: fixed; /* Posicionamiento fijo respecto a la ventana del navegador */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex; /* Usamos flex para poder centrar el contenido fácilmente */
-  justify-content: center; /* Centrado horizontal */
-  align-items: center; /* Centrado vertical */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparente para el efecto de oscurecimiento */
-  backdrop-filter: blur(5px); /* Aplica desenfoque al contenido detrás del modal */
-  border-radius: 12px;
-
-}
-
-.Modal-Content {
-  background-color: white; /* Fondo blanco para el contenido */
-  padding: 20px; /* Espaciado interno */
-  border-radius: 5px; /* Bordes redondeados */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para darle un efecto elevado */
-  max-width: 500px; /* Ancho máximo para el contenido del modal */
-  font-family: 'AnonimusProBold', sans-serif;
-  width: 100%; /* Un ancho base pero con un máximo definido */
-}
-
-.Modal-Button{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  padding: 1em;
-  margin: 1em auto;
-  border: none;
-  border-radius: 12px;
-  background-color: #4CA1AF;
-  color: white;
-  font-size: 1em;
-  font-family: 'AnonimusProBold', sans-serif;
-  cursor: pointer;
-  box-sizing: border-box;
-
-}
-
-@font-face {
-  font-family: 'AnonimusProBold';
-  src: url('https://fonts.googleapis.com') format('woff2'),
-       url('https://fonts.gstatic.com') format('woff');
-}
-
-
-

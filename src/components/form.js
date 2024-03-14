@@ -71,7 +71,7 @@ const Form = () => {
                     {errors.email?.type === "pattern" && <span>El email no es valido</span>}
             </div>
             <div className="Input-Area">
-                <label className="Label">Ciudad:</label>
+                <label className="Label">Ciudad: </label>
                 <select className="Select" {...register("city")}>
                     <option value='0'></option>
                     <option value="1">Bogotá D.C</option>
@@ -84,7 +84,7 @@ const Form = () => {
                 {errors.name && <span>Este campo es requerido</span>}
             </div>
             <div className="Input-Area">
-                <label className="Label">Tipo</label>
+                <label className="Label">Tipo:</label>
                 <select className="Select" {...register("type")}>
                     <option value="0"></option>
                     <option value="1">Petición</option>
@@ -94,7 +94,7 @@ const Form = () => {
                 {errors.name && <span>Este campo es requerido</span>}
             </div>
             <div className="Input-Area">
-                <label className="Label">Descripción</label>
+                <label className="Label">Descripción:</label>
                     <textarea placeholder="Maximo 1000 caracteres..." className="Text-Area" {...register("description", { required: true, maxLength: 10000, })}></textarea>
                     {errors.description && <span>Este campo es requerido</span>}
             </div>
