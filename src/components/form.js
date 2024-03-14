@@ -24,7 +24,7 @@ const Form = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        Axios.post('http://localhost:8070/form', {
+        Axios.post('https://usb-form-api.onrender.com/form', {
             name: data.name,
             email: data.email,
             city: data.city,
@@ -36,7 +36,8 @@ const Form = () => {
             reset();
             console.log('success');
         }).catch((error) => {
-            const errorMessage = error.response ? error.response.data : error.message; 
+            console.log("Error:", error.response.data.message)
+            const errorMessage = error.response.data.message ? error.response.data.message : error.message; 
             setMessage({ title: 'Error!!!', body: errorMessage });
             setShowModal(true);
             console.log('error');

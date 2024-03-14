@@ -108,3 +108,47 @@
   font-family: 'AnonimusProBold', sans-serif;
   padding-top: 50px;
 }
+
+
+.Modal {
+  position: fixed; /* Posicionamiento fijo respecto a la ventana del navegador */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex; /* Usamos flex para poder centrar el contenido fácilmente */
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparente para el efecto de oscurecimiento */
+  backdrop-filter: blur(5px); /* Aplica desenfoque al contenido detrás del modal */
+  border-radius: 12px;
+
+}
+
+.Modal-Content {
+  background-color: white; /* Fondo blanco para el contenido */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para darle un efecto elevado */
+  max-width: 500px; /* Ancho máximo para el contenido del modal */
+  font-family: 'AnonimusProBold', sans-serif;
+  width: 100%; /* Un ancho base pero con un máximo definido */
+}
+
+.Modal-Button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding: 1em;
+  margin: 1em auto;
+  border: none;
+  border-radius: 12px;
+  background-color: #4CA1AF;
+  color: white;
+  font-size: 1em;
+  font-family: 'AnonimusProBold', sans-serif;
+  cursor: pointer;
+  box-sizing: border-box;
+
+}
